@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>VR Tutorial</title>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="dist/css/fonts.min.css">
+		<link rel="stylesheet" href="dist/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="dist/css/codemirror.min.css">
+		<link rel="stylesheet" href="dist/css/theme.min.css">
+
+		<link rel="stylesheet" href="dist/css/index.min.css">
+	</head>
+
+	<body>
+		<section class="tutorial">
+			<article class="active">
+				<h1>Getting started</h1>
+				<h2>Learn how to start coding virtual reality in HTML.</h2>
+
+				<p>Let's begin with a simple 3D box. Can you work out how to change the colour of the box? Try changing it to orange.</p>
+
+			<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader position="0 0 -3" rotation="45 45 0" color="purple"></a-box></textarea>
+					<textarea class="before" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous disabled" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Getting started</h1>
+				<h2>Begin moving your objects around the screen.</h2>
+
+				<p>Great! You've just coded your first VR element. For a slightly harder challenge, see if you can work out how to move the box on the screen.</p>
+
+			<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader position="0 0 -3" rotation="45 45 0" color="orange"></a-box></textarea>
+					<textarea class="before" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Getting started</h1>
+				<h2>Rotating things around to get a better view.</h2>
+
+				<p>We'll do something a little more complicated now. Try to rotate the box to see it from different angles. What do each of the three numbers do?</p>
+
+			<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader position="0 0 -3" rotation="45 45 0" color="orange"></a-box></textarea>
+					<textarea class="before" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Using animations</h1>
+				<h2>Start making your objects move around the screen.</h2>
+
+				<p>I've added an animation to the box to make it rotate, like you just did. It's quite slow though, how would you make it faster? Can you also change the direction?</p>
+
+				<div class="code">
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Using animations</h1>
+				<h2>Now try making your own animation.</h2>
+
+				<p>You've managed to change the one I made for you, see if you can make your own! It should change the colour of the box from orange to purple. Remember to make it just run once.</p>
+
+				<div class="code">
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Adding interactions</h1>
+				<h2>Change the box's colour when you look at it.</h2>
+
+				<p>Let's add something a bit more fun. The box will go purple when you look at it and orange when you look away. See if you can finish this effect off using <code>mouseleave</code>.</p>
+
+				<div class="code">
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Adding interactions</h1>
+				<h2>Make the box disappear when you click on it.</h2>
+
+				<p>Nice! We'll make one more that uses <code>scale</code> to make the box tiny when <code>click</code> click begins. Just like position, <code>scale</code> needs three numbers.</p>
+
+				<div class="code">
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Create the game</h1>
+				<h2>Move the box towards the camera.</h2>
+
+				<p>I've put the box a bit further away from the camera. Can you make one more animation that moves it closer? See what happens when the box hits you!</p>
+
+				<div class="code">
+					<textarea class="before" hidden><a-box invader position="0 0 -20" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
+<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Create the game</h1>
+				<h2>Make some exciting different shapes.</h2>
+
+				<p>Here's all your code. I've made the box start in a random position earch game. Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!</p>
+
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">
+	<a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+	<a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+	<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
+	<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation>
+	<a-animation attribute="position" dur="10000" to="0 0 0"></a-animation>
+</a-box></textarea>
+					<textarea class="after" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+
+			<article>
+				<h1>Create the game</h1>
+				<h2>Put the finishing touches on your game.</h2>
+
+				<p>Great work, your game is nearly complete! To finish off, add some more shapes, all in different positions and of different shapes and colours.</p>
+
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">
+	<a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+	<a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+	<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
+	<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation>
+	<a-animation attribute="position" dur="10000" to="0 0 0"></a-animation>
+</a-box></textarea>
+					<textarea class="after" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next disabled" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+		</section>
+
+		<section class="preview">
+			<iframe src="preview.html?xml="></iframe>
+			<a class="qr" href="#"><i class="fa fa-qrcode"></i></a>
+		</section>
+
+		<script src="dist/js/codemirror.min.js"></script>
+		<script src="dist/js/codemirror.autorefresh.min.js"></script>
+		<script src="dist/js/codemirror.xml.min.js"></script>
+		<script src="dist/js/codemirror.javascript.min.js"></script>
+
+		<script src="dist/js/jquery.min.js"></script>
+		<script src="dist/js/kjua.min.js"></script>
+
+		<script src="dist/js/lz-string.min.js"></script>
+		<script src="dist/js/index.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+@import "include/default";
+
+.CodeMirror { font-family: "Roboto Mono", monospace; background: $secondary; color: $white; height: 100%; width: 100%; line-height: 1.6em; }
+.CodeMirror div.CodeMirror-selected { background: darken($secondary, 10); }
+
+.CodeMirror .CodeMirror-line::selection, .CodeMirror .CodeMirror-line > span::selection, .CodeMirror .CodeMirror-line > span > span::selection { background: darken($secondary, 5); }
+.CodeMirror .CodeMirror-line::-moz-selection, .CodeMirror .CodeMirror-line > span::-moz-selection, .CodeMirror .CodeMirror-line > span > span::selection { background: darken($secondary, 5); }
+
+.CodeMirror .CodeMirror-gutters { background: #f7f7f7; border-right: 0px; }
+.CodeMirror .CodeMirror-guttermarker { color: $primary; }
+.CodeMirror .CodeMirror-guttermarker-subtle { color: #807d7c; }
+.CodeMirror .CodeMirror-linenumber { color: #807d7c; }
+
+.CodeMirror .CodeMirror-cursor { border-left: 1px solid $white; }
+
+.CodeMirror span.cm-comment { color: lighten($secondary, 20); }
+.CodeMirror span.cm-atom { color: #a16a94; }
+.CodeMirror span.cm-number { color: #a16a94; }
+
+.CodeMirror span.cm-property, .CodeMirror span.cm-attribute { color: lighten($secondary, 20); }
+.CodeMirror span.cm-keyword { color: $primary; }
+.CodeMirror span.cm-string { color: $white; }
+
+.CodeMirror span.cm-variable { color: $primary; }
+.CodeMirror span.cm-variable-2 { color: #01a0e4; }
+.CodeMirror span.cm-def { color: #e8bbd0; }
+.CodeMirror span.cm-bracket { color: #3a3432; }
+.CodeMirror span.cm-tag { color: $primary; }
+.CodeMirror span.cm-link { color: #a16a94; }
+.CodeMirror span.cm-error { background: $primary; color: $white; }
+
+.CodeMirror .CodeMirror-activeline-background { background: #e8f2ff; }
+.CodeMirror .CodeMirror-matchingbracket { text-decoration: underline; color: #a16a94 !important; }
+
+.CodeMirror .CodeMirror-scroll { transition: 0.1s linear height; }

@@ -1,0 +1,153 @@
+@import "include/default";
+
+* {
+	margin: 0; padding: 0;
+	border: 0; outline: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	color: $dark;
+
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+section {
+	&.preview {
+		position: fixed;
+		top: 0; bottom: 0; right: 0;
+		z-index: 2;
+
+		width: 40vw;
+		background: $light;
+
+		a {
+			position: absolute;
+			bottom: 2vw; right: 2vw;
+
+			height: 6vw;
+			width: 6vw;
+
+			line-height: 6vw;
+			font-size: 3.2vw;
+
+			padding: 0;
+			margin: 0;
+
+			text-align: center;
+
+			background: $secondary;
+			&:hover { background: darken($secondary, 5); }
+
+			box-shadow: 0 0 10px 2px rgba($black, 0.2);
+			i.fa { padding-right: 0; }
+		}
+	}
+}
+
+article {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+
+	min-height: 100vh;
+	width: 60vw;
+
+	vertical-align: top;
+	white-space: normal;
+
+	padding: 6vw;
+
+	&.active {
+		display: flex;
+	}
+}
+
+a {
+	position: relative;
+	overflow: hidden;
+
+	display: inline-block;
+	box-shadow: 0 0 10px 1px rgba($black, 0.2);
+	margin: 1.3vw 0 0.3vw 0;
+
+	background: $primary;
+	color: $white;
+
+	font-weight: 700;
+	font-size: 1.1vw;
+
+	text-transform: uppercase;
+	border-radius: 999px;
+
+	padding: 0.8vw 2vw;
+	text-decoration: none;
+
+	cursor: pointer;
+
+	transition: background 0.2s ease;
+	&:hover { background: desaturate(darken($primary, 10), 10); }
+
+	&.disabled {
+		opacity: 0.5;
+		pointer-events: none;
+		cursor: pointer;
+	}
+
+	&.previous, &.next {
+		float: right;
+		margin-left: 0.6vw;
+
+		background: darken($secondary, 10);
+		&:hover { background: darken($secondary, 15); }
+	}
+
+	span { display: inline-block; }
+
+	i.fa {
+		padding-right: 0.8vw;
+		&.fa-caret-right { padding: 0 0 0 0.8vw; }
+	}
+}
+
+h1 { font-size: 3.5vw; }
+
+h2 {
+	font-size: 1.6vw;
+	color: $primary;
+	padding-top: 3vw;
+}
+
+p {
+	font-size: 1.2vw;
+	line-height: 2.2vw;
+	padding-top: 1.5vw;
+}
+
+code {
+	font-family: "Roboto Mono", consolas;
+	font-weight: 700;
+}
+
+div.code {
+	width: 100%;
+
+	padding: 1.3vw 1.6vw;
+	margin-top: 3vw;
+
+	background: $secondary;
+	color: $white;
+
+	font-size: 1.3vw;
+	border-radius: 5px;
+
+	fieldset { position: relative; }
+}
+
+iframe {
+	height: 100%;
+	width: 100%;
+}

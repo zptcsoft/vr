@@ -1,4 +1,4 @@
-@import "include/default";
+@import "variables";
 
 * {
 	margin: 0; padding: 0;
@@ -83,7 +83,7 @@ a {
 	text-transform: uppercase;
 	border-radius: 999px;
 
-	padding: 0.8vw 2vw;
+	padding: 0.9vw 2.4vw;
 	text-decoration: none;
 
 	cursor: pointer;
@@ -113,24 +113,26 @@ a {
 	}
 }
 
-h1 { font-size: 3.5vw; }
+h1 {
+	font-weight: 900;
+	font-size: 3.5vw;
+}
 
 h2 {
+	font-weight: 800;
 	font-size: 1.6vw;
 	color: $primary;
 	padding-top: 3vw;
 }
 
 p {
+	font-weight: 500;
 	font-size: 1.2vw;
 	line-height: 2.2vw;
 	padding-top: 1.5vw;
 }
 
-code {
-	font-family: "Roboto Mono", consolas;
-	font-weight: 700;
-}
+code { font-family: "Roboto Mono", monospace; }
 
 div.code {
 	width: 100%;

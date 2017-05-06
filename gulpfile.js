@@ -5,8 +5,9 @@ const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 
 const uglify = require('gulp-uglify')
+const connect = require('gulp-connect')
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
 	return gulp.src('./src/sass/*.scss')
 		.pipe(sass({ outputStyle: 'compressed' }))
 		.pipe(autoprefixer())
@@ -14,11 +15,19 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest('./lib/css'))
 })
 
-gulp.task('js', function() {
+gulp.task('js', () => {
 	return gulp.src('./src/js/*.js')
 		.pipe(uglify())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./lib/js'))
 })
 
-gulp.task('default', ['sass', 'js'])
+gulp.task('build', ['sass', 'js'])
+gulp.task('run', () => connect.server())
+
+gulp.task('watch', () => {
+	gulp.watch('./src/sass/*.scss', ['sass'])
+	gulp.watch('./src/js/*.js', ['js'])
+})
+
+gulp.task('default', ['build', 'run', 'watch'])

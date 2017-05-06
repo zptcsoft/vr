@@ -1,4 +1,4 @@
-@import "include/default";
+@import "variables";
 
 .CodeMirror { font-family: "Roboto Mono", monospace; background: $secondary; color: $white; height: 100%; width: 100%; line-height: 1.6em; }
 .CodeMirror div.CodeMirror-selected { background: darken($secondary, 10); }

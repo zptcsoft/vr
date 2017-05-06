@@ -1,5 +1,7 @@
+var params = {};
+
 AFRAME.registerComponent('invader', {
-	tick: function () {
+	tick: function() {
 		var scale = this.el.getAttribute('scale');
 		var pos = this.el.getAttribute('position');
 
@@ -9,7 +11,9 @@ AFRAME.registerComponent('invader', {
 			if (!document.querySelector('[invader]')) {
 				document.querySelector('a-scene').pause();
 
-				alert('Congratulations! You destroyed the invaders and won.');
+				if ('v' in params)
+					alert('Congratulations! You destroyed the shapes and won.');
+
 				location.reload();
 			}
 		}
@@ -20,14 +24,14 @@ AFRAME.registerComponent('invader', {
 
 		document.querySelector('a-scene').pause();
 
-		alert('Game over! You got hit by a shape and lost, try again.');
+		if ('v' in params)
+			alert('Game over! You got hit by a shape and lost, try again.');
+
 		location.reload();
 	}
 });
 
 $(function() {
-	var params = {};
-
 	location.search.substr(1).split('&').forEach(function(param) {
 		params[param.split('=')[0]] = param.split('=')[1]
 	});
@@ -36,6 +40,16 @@ $(function() {
 		'wasd-controls="enabled: false" ' +
 		'vr-mode-ui="enabled: ' + ('v' in params).toString() +
 	'"></a-scene')
-		.html(LZString.decompressFromEncodedURIComponent(params['q'] || ''))
+		.html($('<a-entity></a-entity>').html(
+			LZString.decompressFromEncodedURIComponent(params['q'] || '')
+		))
 		.prependTo('body');
+
+	var scene = document.querySelector('a-scene');
+	var entity = document.querySelector('a-entity');
+
+	if ('v' in params) scene.addEventListener('loaded', function() {
+		entity.pause();
+		scene.addEventListener('dblclick', function() { entity.play() });
+	});
 });

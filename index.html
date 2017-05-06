@@ -4,8 +4,8 @@
 		<title>VR Tutorial</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="lib/css/fonts.min.css">
-		<link rel="stylesheet" href="lib/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
 
 		<link rel="stylesheet" href="lib/css/codemirror.min.css">
 		<link rel="stylesheet" href="lib/css/theme.min.css">
@@ -88,11 +88,11 @@
 				<h1>Using animations</h1>
 				<h2>Now try making your own animation.</h2>
 
-				<p>You've managed to change the one I made for you, see if you can make your own! It should change the colour of the box from orange to purple. Remember to make it just run once.</p>
+				<p>You've managed to change the one I made for you, see if you can make your own! Can you change this animation to make the box go from orange to purple?</p>
 
 				<div class="code">
-					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"></textarea>
-					<textarea data-mode="xml" hidden><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea data-mode="xml" hidden><a-animation attribute="width" dur="2000" from="1" to="2"></a-animation></textarea>
 					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
 					<fieldset>
 						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
@@ -106,7 +106,7 @@
 				<h1>Adding interactions</h1>
 				<h2>Change the box's colour when you look at it.</h2>
 
-				<p>Let's add something a bit more fun. The box will go purple when you look at it and orange when you look away. See if you can finish this effect off using <code>mouseleave</code>.</p>
+				<p>Let's add something a bit more fun. The box will go purple when you look at it and orange when you look away. See if you can finish this effect off using another animation and <code>mouseleave</code>.</p>
 
 				<div class="code">
 					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
@@ -124,7 +124,7 @@
 				<h1>Adding interactions</h1>
 				<h2>Make the box disappear when you click on it.</h2>
 
-				<p>Nice! We'll make one more that uses <code>scale</code> to make the box tiny when <code>click</code> click begins. Just like position, <code>scale</code> needs three numbers.</p>
+				<p>Nice! We'll make one more that uses <code>scale</code> to make the box tiny when <code>click</code> begins. Just like position, <code>scale</code> needs three numbers.</p>
 
 				<div class="code">
 					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
@@ -164,29 +164,6 @@
 				<h2>Make some exciting different shapes.</h2>
 
 				<p>Here's all your code. I've made the box start in a random position earch game. Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!</p>
-
-				<div class="code">
-					<textarea data-mode="xml" hidden><a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">
-	<a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
-	<a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
-	<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
-	<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation>
-	<a-animation attribute="position" dur="10000" to="0 0 0"></a-animation>
-</a-box></textarea>
-					<textarea class="after" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
-					<fieldset>
-						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
-						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
-						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
-					</fieldset>
-				</div>
-			</article>
-
-			<article>
-				<h1>Create the game</h1>
-				<h2>Put the finishing touches on your game.</h2>
-
-				<p>Great work, your game is nearly complete! To finish off, add some more shapes, all in different positions and of different shapes and colours.</p>
 
 				<div class="code">
 					<textarea data-mode="xml" hidden><a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">

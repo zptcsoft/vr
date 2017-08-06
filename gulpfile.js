@@ -12,14 +12,14 @@ gulp.task('sass', () => {
 		.pipe(sass({ outputStyle: 'compressed' }))
 		.pipe(autoprefixer())
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./lib/css'))
+		.pipe(gulp.dest('./css'))
 })
 
 gulp.task('js', () => {
 	return gulp.src('./src/js/*.js')
 		.pipe(uglify())
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./lib/js'))
+		.pipe(gulp.dest('./js'))
 })
 
 gulp.task('build', ['sass', 'js'])

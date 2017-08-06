@@ -1,8 +1,14 @@
 {
-  "name": "vr-tutorial",
-  "version": "1.0.0",
-  "devDependencies": {
-    "gulp": "^3.9.1",
+	"name": "vr-tutorial",
+	"version": "1.0.0",
+	"description": "Short VR tutorial for kids using the A-Frame library.",
+	"license": "UNLICENSED",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/zcutner/vr.git"
+  },
+	"devDependencies": {
+		"gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-connect": "^5.0.0",
     "gulp-handlebars-html": "0.0.2",
@@ -10,5 +16,5 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
     "handlebars": "^4.0.10"
-  }
+	}
 }

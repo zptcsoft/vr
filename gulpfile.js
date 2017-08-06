@@ -30,4 +30,5 @@ gulp.task('watch', () => {
 	gulp.watch('./src/js/*.js', ['js'])
 })
 
-gulp.task('default', ['build', 'run', 'watch'])
+gulp.task('default', ['build', 'run'])
+gulp.task('live', ['default', 'watch'])

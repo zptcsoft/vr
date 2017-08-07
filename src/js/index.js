@@ -1,4 +1,8 @@
 $(function() {
+	// Activate the first tutorial section and disable appropiate buttons for first and last element
+	$('section article').first().addClass('active').find('a.previous').addClass('disabled');
+	$('section article').last().find('a.next').addClass('disabled');
+
 	$('a.execute').click(function(e) {
 		e.preventDefault();
 

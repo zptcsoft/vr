@@ -8,9 +8,13 @@ const uglify = require('gulp-uglify')
 const connect = require('gulp-connect')
 
 const yaml = require('js-yaml')
-const fs = require('fs')
 
-const gulpHandlebars = require('gulp-handlebars-html')(require('handlebars'))
+const fs = require('fs')
+const glob = require("glob")
+
+const handlebars = require('gulp-hb')
+
+
 
 gulp.task('sass', () => {
 	return gulp.src('./src/sass/*.scss')
@@ -27,18 +31,29 @@ gulp.task('js', () => {
 		.pipe(gulp.dest('./js'))
 })
 
-gulp.task('handlebars', () => {
-	try {
-  	var doc = yaml.safeLoad(fs.readFileSync('./src/tutorials/1-getting-started.yaml', 'utf8'));
-  	console.log(doc);
-	} catch (e) {
-  	console.log(e);
-	}
+gulp.task('handlebars', (callback) => {
+	// Files are automatically sorted so the tutorials will be ordered correctly
+	glob("./src/tutorials/*.yaml", { }, function (er, files) {
+		if (er) {
+			console.error('Error with glob: ' + e)
+		}
 
-	return gulp.src('./src/views/*.handlebars')
-		.pipe(gulpHandlebars({ tutorials: [doc] }, { }))
-		.pipe(rename('hello.html'))
-		.pipe(gulp.dest('./'));
+		tutorials = [];
+
+	  for (i in files) {
+			try {
+		  	tutorials.push(yaml.safeLoad(fs.readFileSync(files[i], 'utf8')))
+			} catch (e) {
+		  	console.error('Error loading ' + files[i] + ': ' + e)
+			}
+		}
+
+		gulp.src('./src/views/*.handlebars')
+			.pipe(handlebars({ data: { tutorials }, partials: './src/views/partials/*' }))
+			.pipe(rename({ extname: '.html' }))
+			.pipe(gulp.dest('./'))
+			.on('end', callback)
+	})
 })
 
 gulp.task('build', ['sass', 'js', 'handlebars'])
@@ -47,8 +62,7 @@ gulp.task('run', () => connect.server())
 gulp.task('watch', () => {
 	gulp.watch('./src/sass/*.scss', ['sass'])
 	gulp.watch('./src/js/*.js', ['js'])
-	gulp.watch('./src/views/*.handlebars', ['handlebars'])
-	gulp.watch('./src/tutorials/*.yaml', ['handlebars'])
+	gulp.watch(['./src/views/*.handlebars', './src/tutorials/*.yaml', './src/views/partials/*.handlebars'], ['handlebars'])
 })
 
 gulp.task('default', ['build', 'run'])

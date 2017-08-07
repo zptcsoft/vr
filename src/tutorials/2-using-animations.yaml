@@ -1,0 +1,25 @@
+title: Using animations
+
+sections:
+  - subtitle: Start making your objects move around the screen.
+    instruction: >
+      I've added an animation to the box to make it rotate, like you just did.
+      It's quite slow though, how would you make it faster?
+      Can you also change the direction?
+    before: >
+      <a-box invader position="0 0 -3" rotation="0 0 0" color="orange">
+    code: |
+      <a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0"
+        repeat="indefinite" easing="linear"></a-animation>
+    after: >
+      </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+  - subtitle: Now try making your own animation.
+    instruction: >
+      You've managed to change the one I made for you, see if you can make your own!
+      Can you change this animation to make the box go from orange to purple?
+    before: >
+      <a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+    code: |
+      <a-animation attribute="width" dur="2000" from="1" to="2"></a-animation>
+    after: >
+      </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>

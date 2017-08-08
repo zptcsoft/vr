@@ -30,8 +30,8 @@ gulp.task('js', () => {
 
 gulp.task('handlebars', callback => {
 	// Files are automatically sorted so the tutorials will be ordered correctly
-	glob('./src/tutorials/*.yaml', { }, function (err, files) {
-		if (err) console.error('Error with glob: ' + e)
+	glob('./src/tutorials/*.yaml', {}, function (e, files) {
+		if (e) console.error('Error with glob: ' + e)
 		tutorials = []
 
 		for (i in files) {
@@ -42,7 +42,7 @@ gulp.task('handlebars', callback => {
 		gulp.src('./src/views/*.handlebars')
 			.pipe(handlebars({ data: { tutorials } }))
 			.pipe(rename({ extname: '.html' }))
-			.pipe(gulp.dest('./'))
+			.pipe(gulp.dest('.'))
 			.on('end', callback)
 	})
 })
@@ -53,9 +53,7 @@ gulp.task('run', () => connect.server())
 gulp.task('watch', () => {
 	gulp.watch('./src/sass/*.scss', ['sass'])
 	gulp.watch('./src/js/*.js', ['js'])
-	gulp.watch(['./src/views/*.handlebars',
-		'./src/tutorials/*.yaml',
-		'./src/views/partials/*.handlebars'], ['handlebars'])
+	gulp.watch(['./src/views/*.handlebars', './src/tutorials/*.yaml'], ['handlebars'])
 })
 
 gulp.task('default', ['build', 'run'])

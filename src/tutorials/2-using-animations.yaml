@@ -9,8 +9,7 @@ sections:
     before: >
       <a-box invader position="0 0 -3" rotation="0 0 0" color="orange">
     code: |
-      <a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0"
-        repeat="indefinite" easing="linear"></a-animation>
+      <a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
     after: >
       </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
   - subtitle: Now try making your own animation.

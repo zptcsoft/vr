@@ -37,13 +37,6 @@ gulp.task('handlebars', callback => {
 		for (i in files) {
 			try { tutorials.push(yaml.safeLoad(fs.readFileSync(files[i], 'utf8'))) }
 			catch (e) { console.error('Error loading ' + files[i] + ': ' + e) }
-
-			tutorials[i]['sections'] = tutorials[i]['sections'].map( section => {
-				if ('code' in section) section.code = section.code
-					.replace(/\n$/, '') // Remove trailing line
-
-				return section
-			})
 		}
 
 		gulp.src('./src/views/*.handlebars')

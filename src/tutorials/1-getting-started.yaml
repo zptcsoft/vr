@@ -1,0 +1,33 @@
+title: Getting started
+
+sections:
+  - subtitle: Learn how to start coding virtual reality in HTML.
+    instruction: >-
+      Let's begin with a simple 3D box.
+      Can you work out how to change the colour of the box?
+      Try changing it to orange.
+    before: >-
+      <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+    code: |-
+      <a-box invader position="0 0 -3" rotation="45 45 0" color="purple"></a-box>
+    after:
+  - subtitle: Begin moving your objects around the screen.
+    instruction: >-
+      Great! You've just coded your first VR element.
+      For a slightly harder challenge,
+      see if you can work out how to move the box on the screen.
+    before: >-
+      <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+    code: |-
+      <a-box invader position="0 0 -3" rotation="45 45 0" color="orange"></a-box>
+    after:
+  - subtitle: Rotating things around to get a better view.
+    instruction: >-
+      We'll do something a little more complicated now.
+      Try to rotate the box to see it from different angles.
+      What do each of the three numbers do?
+    before: >-
+      <a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+    code: |-
+      <a-box invader position="0 0 -3" rotation="45 45 0" color="orange"></a-box>
+    after:

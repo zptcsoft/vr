@@ -10,8 +10,8 @@ const connect = require('gulp-connect')
 const fs = require('fs')
 const glob = require('glob')
 
-const handlebars = require('gulp-hb')
 const yaml = require('js-yaml')
+const handlebars = require('gulp-hb')
 
 gulp.task('sass', () => {
 	return gulp.src('./src/sass/*.scss')
@@ -40,7 +40,7 @@ gulp.task('handlebars', callback => {
 		}
 
 		gulp.src('./src/views/*.handlebars')
-			.pipe(handlebars({ data: { tutorials }, partials: './src/views/partials/*', preventIndent: true }))
+			.pipe(handlebars({ data: { tutorials } }))
 			.pipe(rename({ extname: '.html' }))
 			.pipe(gulp.dest('./'))
 			.on('end', callback)

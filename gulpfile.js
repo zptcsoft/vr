@@ -40,7 +40,8 @@ gulp.task('handlebars', callback => {
 		}
 
 		gulp.src('./src/views/*.handlebars')
-			.pipe(handlebars({ data: { tutorials }, partials: './src/views/partials/*', preventIndent: true }))
+			.pipe(handlebars({ data: { tutorials },
+				partials: './src/views/partials/*', helpers: './src/views/helpers/*' }))
 			.pipe(rename({ extname: '.html' }))
 			.pipe(gulp.dest('./'))
 			.on('end', callback)
@@ -55,6 +56,7 @@ gulp.task('watch', () => {
 	gulp.watch('./src/js/*.js', ['js'])
 	gulp.watch(['./src/views/*.handlebars',
 		'./src/tutorials/*.yaml',
+		'./src/views/helpers/*.js',
 		'./src/views/partials/*.handlebars'], ['handlebars'])
 })
 

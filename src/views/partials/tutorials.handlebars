@@ -1,7 +1,7 @@
 <section class="tutorial">
 {{# each tutorials as |tutorial tutorialid| }}
 	{{# each tutorial.sections as |section sectionid| }}
-	<article>
+	<article id="{{ createtutorialid tutorial.title sectionid }}">
 		<h1>{{ tutorial.title }}</h1>
 		<h2>{{ section.subtitle }}</h2>
 

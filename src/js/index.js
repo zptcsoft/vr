@@ -1,7 +1,12 @@
 $(function() {
 	// Activate the first tutorial section and disable appropiate buttons for first and last element
-	$('section article').first().addClass('active').find('a.previous').addClass('disabled');
+	$('section article').first().find('a.previous').addClass('disabled');
 	$('section article').last().find('a.next').addClass('disabled');
+
+	var idhash = window.location.hash;
+	// If idhash not set or there is no article with that id then use first tutorial
+	if(!idhash || !$('section article' + idhash).addClass('active').length)
+		$('section article').first().addClass('active');
 
 	$('a.execute').click(function(e) {
 		e.preventDefault();
@@ -49,16 +54,16 @@ $(function() {
 	$('a.next').click(function(e) {
 		e.preventDefault();
 
-		$(this)
+		window.location.hash = $(this)
 			.parents().eq(2).removeClass('active')
-			.next().addClass('active').find('a.execute').click();
+			.next().addClass('active').find('a.execute').click().closest('article').attr('id');
 	});
 
 	$('a.previous').click(function(e) {
 		e.preventDefault();
 
-		$(this)
+		window.location.hash = $(this)
 			.parents().eq(2).removeClass('active')
-			.prev().addClass('active').find('a.execute').click();
+			.prev().addClass('active').find('a.execute').click().closest('article').attr('id');
 	});
 });

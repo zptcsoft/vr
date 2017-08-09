@@ -3,8 +3,9 @@ const rename = require('gulp-rename')
 
 const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
-
 const uglify = require('gulp-uglify')
+
+const {PeerServer} = require('peer')
 const connect = require('gulp-connect')
 
 const fs = require('fs')
@@ -48,7 +49,8 @@ gulp.task('handlebars', callback => {
 })
 
 gulp.task('build', ['sass', 'js', 'handlebars'])
-gulp.task('run', () => connect.server())
+gulp.task('peer', () => PeerServer({ port: 9000 }))
+gulp.task('run', () => connect.server({ port: 80 }))
 
 gulp.task('watch', () => {
 	gulp.watch('./src/sass/*.scss', ['sass'])
@@ -56,5 +58,5 @@ gulp.task('watch', () => {
 	gulp.watch(['./src/views/*.handlebars', './src/tutorials/*.yaml'], ['handlebars'])
 })
 
-gulp.task('default', ['build', 'run'])
+gulp.task('default', ['build', 'peer', 'run'])
 gulp.task('live', ['default', 'watch'])

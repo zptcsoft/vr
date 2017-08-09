@@ -24,26 +24,18 @@ section {
 		width: 40vw;
 		background: $light;
 
-		a {
+		span {
 			position: absolute;
 			bottom: 2vw; right: 2vw;
 
-			height: 6vw;
-			width: 6vw;
+			font-family: "Roboto Mono", monospace;
+			font-weight: bold;
 
-			line-height: 6vw;
-			font-size: 3.2vw;
+			font-size: 1.3vw;
+			color: $black;
 
-			padding: 0;
-			margin: 0;
-
-			text-align: center;
-
-			background: $secondary;
-			&:hover { background: darken($secondary, 5); }
-
-			box-shadow: 0 0 10px 2px rgba($black, 0.2);
-			i.fa { padding-right: 0; }
+			letter-spacing: 0.1vw;
+			opacity: 0.3;
 		}
 	}
 }

@@ -1,4 +1,25 @@
-var params = {};
+var fullscreen = false;
+
+var load = function(data) {
+	$('<a-scene ' +
+		'wasd-controls="enabled: false" ' +
+		'vr-mode-ui="enabled: ' + fullscreen.toString() +
+	'"></a-scene')
+		.html($('<a-entity></a-entity>').html(
+			LZString.decompressFromEncodedURIComponent(data)
+		))
+		.prependTo('body');
+
+	if (fullscreen) {
+		var scene = document.querySelector('a-scene');
+		var entity = document.querySelector('a-entity');
+
+		scene.addEventListener('loaded', function() {
+			entity.pause();
+			scene.addEventListener('dblclick', function() { entity.play() });
+		});
+	}
+};
 
 AFRAME.registerComponent('invader', {
 	tick: function() {
@@ -11,20 +32,19 @@ AFRAME.registerComponent('invader', {
 			if (!document.querySelector('[invader]')) {
 				document.querySelector('a-scene').pause();
 
-				if ('v' in params)
+				if (fullscreen)
 					alert('Congratulations! You destroyed the shapes and won.');
 
 				location.reload();
 			}
 		}
 
-		for (var k in pos) {
-			if (parseFloat(pos[k]) > 1 || parseFloat(pos[k]) < -1) return false;
-		}
+		for (var i in pos)
+			if (parseFloat(pos[i]) > 1 || parseFloat(pos[i]) < -1) return false;
 
 		document.querySelector('a-scene').pause();
 
-		if ('v' in params)
+		if (fullscreen)
 			alert('Game over! You got hit by a shape and lost, try again.');
 
 		location.reload();
@@ -32,24 +52,24 @@ AFRAME.registerComponent('invader', {
 });
 
 $(function() {
+	var params = {};
+
 	location.search.substr(1).split('&').forEach(function(param) {
 		params[param.split('=')[0]] = param.split('=')[1]
 	});
 
-	$('<a-scene ' +
-		'wasd-controls="enabled: false" ' +
-		'vr-mode-ui="enabled: ' + ('v' in params).toString() +
-	'"></a-scene')
-		.html($('<a-entity></a-entity>').html(
-			LZString.decompressFromEncodedURIComponent(params['q'] || '')
-		))
-		.prependTo('body');
+	if ('q' in params) load(params['q'])
 
-	var scene = document.querySelector('a-scene');
-	var entity = document.querySelector('a-entity');
+	else {
+		var peer = new Peer({ key: '9a5ls6yq7ann4s4i' });
+		fullscreen = true;
 
-	if ('v' in params) scene.addEventListener('loaded', function() {
-		entity.pause();
-		scene.addEventListener('dblclick', function() { entity.play() });
-	});
+		peer.on('open', function() {
+			var conn = peer.connect(prompt('Enter the editor ID...'));
+
+			conn.on('open', function() {
+				conn.on('data', function(data) { load(data) });
+			});
+		});
+	}
 });

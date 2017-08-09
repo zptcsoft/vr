@@ -8,8 +8,7 @@ sections:
       See what happens when the box hits you!
     before: >-
       <a-box invader position="0 0 -20" rotation="0 0 0" color="orange">
-      <a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0"
-        repeat="indefinite" easing="linear"></a-animation>
+      <a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
     code: |-
       <a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
       <a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>

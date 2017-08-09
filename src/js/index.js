@@ -1,3 +1,5 @@
+'use strict';
+
 $(function() {
 	$('a.execute').click(function(e) {
 		e.preventDefault();
@@ -36,10 +38,10 @@ $(function() {
 			.prev().addClass('active').find('a.execute').click().closest('article').attr('id');
 	});
 
-  // If window.location.hash not set or there is no article with that id then use first tutorial
+	// If window.location.hash not set or there is no article with that id then use first tutorial
 	if(!window.location.hash || !$('section article' + window.location.hash).addClass('active').length)
 		$('section article').first().addClass('active');
-  
+
 	// Activate the first tutorial section and disable appropiate buttons for first and last element
 	$('section article').first().find('a.previous').addClass('disabled');
 	$('section article').last().find('a.next').addClass('disabled');

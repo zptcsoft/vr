@@ -1,3 +1,5 @@
+'use strict';
+
 var fullscreen = false;
 
 var load = function(data) {

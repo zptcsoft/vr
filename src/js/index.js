@@ -23,21 +23,25 @@ $(function() {
 	$('a.next').click(function(e) {
 		e.preventDefault();
 
-		$(this)
+		window.location.hash = $(this)
 			.parents().eq(2).removeClass('active')
-			.next().addClass('active').find('a.execute').click();
+			.next().addClass('active').find('a.execute').click().closest('article').attr('id');
 	});
 
 	$('a.previous').click(function(e) {
 		e.preventDefault();
 
-		$(this)
+		window.location.hash = $(this)
 			.parents().eq(2).removeClass('active')
-			.prev().addClass('active').find('a.execute').click();
+			.prev().addClass('active').find('a.execute').click().closest('article').attr('id');
 	});
 
+  // If window.location.hash not set or there is no article with that id then use first tutorial
+	if(!window.location.hash || !$('section article' + window.location.hash).addClass('active').length)
+		$('section article').first().addClass('active');
+  
 	// Activate the first tutorial section and disable appropiate buttons for first and last element
-	$('section article').first().addClass('active').find('a.previous').addClass('disabled');
+	$('section article').first().find('a.previous').addClass('disabled');
 	$('section article').last().find('a.next').addClass('disabled');
 
 	$('a.execute').first().click();

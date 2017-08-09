@@ -41,7 +41,8 @@ gulp.task('handlebars', callback => {
 		}
 
 		gulp.src('./src/views/*.handlebars')
-			.pipe(handlebars({ data: { tutorials } }))
+			.pipe(handlebars({ data: { tutorials },
+				helpers: './src/views/helpers/*' }))
 			.pipe(rename({ extname: '.html' }))
 			.pipe(gulp.dest('.'))
 			.on('end', callback)
@@ -55,7 +56,9 @@ gulp.task('run', () => connect.server({ port: 80 }))
 gulp.task('watch', () => {
 	gulp.watch('./src/sass/*.scss', ['sass'])
 	gulp.watch('./src/js/*.js', ['js'])
-	gulp.watch(['./src/views/*.handlebars', './src/tutorials/*.yaml'], ['handlebars'])
+	gulp.watch(['./src/views/*.handlebars',
+		'./src/tutorials/*.yaml',
+		'./src/views/helpers/*.js'], ['handlebars'])
 })
 
 gulp.task('default', ['build', 'peer', 'run'])

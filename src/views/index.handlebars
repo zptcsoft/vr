@@ -17,7 +17,7 @@
 		<section class="tutorial">
 			{{# each tutorials }}
 			{{# each sections }}
-			<article>
+			<article id="{{ createtutorialid ../title @index }}">
 				<h1>{{ ../title }}</h1>
 				<h2>{{ subtitle }}</h2>
 

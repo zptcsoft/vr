@@ -10,8 +10,8 @@ const connect = require('gulp-connect')
 const fs = require('fs')
 const glob = require('glob')
 
-const handlebars = require('gulp-hb')
 const yaml = require('js-yaml')
+const handlebars = require('gulp-hb')
 
 gulp.task('sass', () => {
 	return gulp.src('./src/sass/*.scss')
@@ -30,8 +30,8 @@ gulp.task('js', () => {
 
 gulp.task('handlebars', callback => {
 	// Files are automatically sorted so the tutorials will be ordered correctly
-	glob('./src/tutorials/*.yaml', { }, function (err, files) {
-		if (err) console.error('Error with glob: ' + e)
+	glob('./src/tutorials/*.yaml', {}, function (e, files) {
+		if (e) console.error('Error with glob: ' + e)
 		tutorials = []
 
 		for (i in files) {
@@ -41,9 +41,9 @@ gulp.task('handlebars', callback => {
 
 		gulp.src('./src/views/*.handlebars')
 			.pipe(handlebars({ data: { tutorials },
-				partials: './src/views/partials/*', helpers: './src/views/helpers/*' }))
+				helpers: './src/views/helpers/*' }))
 			.pipe(rename({ extname: '.html' }))
-			.pipe(gulp.dest('./'))
+			.pipe(gulp.dest('.'))
 			.on('end', callback)
 	})
 })
@@ -56,8 +56,7 @@ gulp.task('watch', () => {
 	gulp.watch('./src/js/*.js', ['js'])
 	gulp.watch(['./src/views/*.handlebars',
 		'./src/tutorials/*.yaml',
-		'./src/views/helpers/*.js',
-		'./src/views/partials/*.handlebars'], ['handlebars'])
+		'./src/views/helpers/*.js'], ['handlebars'])
 })
 
 gulp.task('default', ['build', 'run'])

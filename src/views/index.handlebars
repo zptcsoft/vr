@@ -14,8 +14,28 @@
 	</head>
 
 	<body>
-<!-- Don't indent this! -->
-{{> tutorials }}
+		<section class="tutorial">
+			{{# each tutorials }}
+			{{# each sections }}
+			<article id="{{ createtutorialid ../title @index }}">
+				<h1>{{ ../title }}</h1>
+				<h2>{{ subtitle }}</h2>
+
+				<p>{{{ instruction }}}</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden>{{{ code }}}</textarea>
+					<textarea class="before" hidden>{{{ before }}}</textarea>
+					<textarea class="after" hidden>{{{ after }}}</textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>Execute</span></a>
+						<a class="next" href="#"><span>Next</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>Previous</span></a>
+					</fieldset>
+				</div>
+			</article>
+			{{/ each }}
+			{{/ each }}
+		</section>
 
 		<section class="preview">
 			<iframe src="preview.html"></iframe>

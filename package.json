@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/zcutner/vr.git"
   },
-  "devDependencies": {
+  "dependencies": {
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",

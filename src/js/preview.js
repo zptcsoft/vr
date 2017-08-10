@@ -1,28 +1,10 @@
+/**
+ * Client-side scripts for preview.html
+ */
+
 'use strict';
 
-var fullscreen = false;
-
-var load = function(data) {
-	$('<a-scene ' +
-		'wasd-controls="enabled: false" ' +
-		'vr-mode-ui="enabled: ' + fullscreen.toString() +
-	'"></a-scene')
-		.html($('<a-entity></a-entity>').html(
-			LZString.decompressFromEncodedURIComponent(data)
-		))
-		.prependTo('body');
-
-	if (fullscreen) {
-		var scene = document.querySelector('a-scene');
-		var entity = document.querySelector('a-entity');
-
-		scene.addEventListener('loaded', function() {
-			entity.pause();
-			scene.addEventListener('dblclick', function() { entity.play() });
-		});
-	}
-};
-
+// Create the invader component for extended functionality
 AFRAME.registerComponent('invader', {
 	tick: function() {
 		var scale = this.el.getAttribute('scale');
@@ -53,25 +35,61 @@ AFRAME.registerComponent('invader', {
 	}
 });
 
+// Default fullscreen mode to false
+var fullscreen = false;
+
+var load = function(data) {
+	// Remove any previous a-scene element
+	$('a-scene').remove();
+
+	// Create the new a-scene element with decompressed code and prepend to body
+	$('<a-scene ' +
+		'wasd-controls="enabled: false" ' +
+		'vr-mode-ui="enabled: ' + fullscreen.toString() +
+	'"></a-scene')
+		.html($('<a-entity></a-entity>').html(
+			LZString.decompressFromEncodedURIComponent(data)
+		))
+		.prependTo('body');
+
+	// If fullscreen mode require double click before execution begins
+	if (fullscreen) {
+		var scene = document.querySelector('a-scene');
+		var entity = document.querySelector('a-entity');
+
+		scene.addEventListener('loaded', function() {
+			entity.pause();
+			scene.addEventListener('dblclick', function() { entity.play() });
+		});
+	}
+};
+
 $(function() {
+	// Variable to store GET parameters in the URL
 	var params = {};
 
+	// Find all the GET parameters in the URL
 	location.search.substr(1).split('&').forEach(function(param) {
 		params[param.split('=')[0]] = param.split('=')[1]
 	});
 
+	// If code has been given as a parameter use this
 	if ('q' in params) load(params['q'])
 
+	// Otherwise obtain code from socket connection to editor
 	else {
-		var peer = new Peer({ key: '9a5ls6yq7ann4s4i' });
+		// Initialise the socket connection
+		var socket = io.connect();
+
+		// Set fullscreen to true
 		fullscreen = true;
 
-		peer.on('open', function() {
-			var conn = peer.connect(prompt('Enter the editor ID...'));
-
-			conn.on('open', function() {
-				conn.on('data', function(data) { load(data) });
-			});
+		socket.on('connect', function() {
+			// Send pull event with user provided editor ID
+			socket.emit('pull', prompt('Enter the editor ID:'));
 		});
+
+		// On the push event use the compressed code
+		socket.on('push', load);
 	}
 });

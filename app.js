@@ -11,14 +11,18 @@ const io = require('socket.io')(server)
 
 // Logging
 const morgan = require('morgan')
-app.use(morgan('[:date[clf]] :remote-addr - :status :method :url :res[content-length] :response-time ms'))
+if (app.get('env') != 'production')
+	app.use(morgan(
+		'[:date[clf]] :remote-addr - :status ' +
+		':method :url :res[content-length] :response-time ms'
+	))
 
 // Object of editor IDs (key) and their socket IDs (value)
 const clients = {}
 
 // Start server on port 3000
 server.listen(3000, function() {
-	console.log('VR server listening on port 3000')
+	console.log('VR server listening on http://localhost:3000')
 })
 
 // Serve static files on server

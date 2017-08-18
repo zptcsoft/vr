@@ -9,8 +9,9 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
-// Logging
 const morgan = require('morgan')
+
+// Enable request logging in production mode
 if (app.get('env') != 'production')
 	app.use(morgan(
 		'[:date[clf]] :remote-addr - :status ' +
@@ -21,9 +22,11 @@ if (app.get('env') != 'production')
 const clients = {}
 
 // Start server on port 3000
-server.listen(3000, function() {
-	console.log('VR server listening on http://localhost:3000')
-})
+server.listen(3000, 'localhost', () => console.log(
+	'VR server listening on http://%s:%s',
+	server.address().address,
+	server.address().port
+))
 
 // Serve static files on server
 app.use(express.static('build'))

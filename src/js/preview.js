@@ -78,15 +78,19 @@ $(function() {
 
 	// Otherwise obtain code from socket connection to editor
 	else {
-		// Initialise the socket connection
-		var socket = io.connect();
-
 		// Set fullscreen to true
 		fullscreen = true;
 
+		// Ask the user for the editor ID
+		var editorID = prompt('Enter the editor ID:')
+
+		// Initialise the socket connection after asking for ID to ensure we hear the connect event
+		var socket = io.connect();
+
+		// When the socket connects to the server
 		socket.on('connect', function() {
 			// Send pull event with user provided editor ID
-			socket.emit('pull', prompt('Enter the editor ID:'));
+			socket.emit('pull', editorID);
 		});
 
 		// On the push event use the compressed code

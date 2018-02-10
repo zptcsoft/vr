@@ -10,7 +10,6 @@
   "dependencies": {
     "express": "^4.15.4",
     "glob": "^7.1.2",
-    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-hb": "^6.0.2",
     "gulp-rename": "^1.2.2",
@@ -23,5 +22,8 @@
   "scripts": {
     "build": "gulp",
     "start": "node app.js"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

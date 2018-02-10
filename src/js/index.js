@@ -19,7 +19,7 @@ $(function() {
 		)
 
 		// Update the preview frame with the compressed code
-		$('iframe').attr('src', 'preview?q=' + code);
+		$('iframe').attr('src', 'preview.html?q=' + code);
 	});
 
 	// Setup textarea with CodeMirror

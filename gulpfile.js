@@ -52,7 +52,7 @@ gulp.task('handlebars', callback => {
 				helpers: './src/views/helpers/*'
 			}))
 			.pipe(rename({ extname: '.html' }))
-			.pipe(gulp.dest('./build/html'))
+			.pipe(gulp.dest('./build/'))
 			.on('end', callback)
 	})
 })

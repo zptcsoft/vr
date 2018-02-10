@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A-Frame简明教程</title>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
+
+		<link rel="stylesheet" href="css/codemirror.min.css">
+		<link rel="stylesheet" href="css/theme.min.css">
+
+		<link rel="stylesheet" href="css/index.min.css">
+	</head>
+
+	<body>
+		<section class="tutorial">
+			<article id="从头开始-1">
+				<h1>从头开始</h1>
+				<h2>准备工作</h2>
+
+				<p>1. html中引入A-Frame库，可以本地加载，也可以使用CDN的方式<br> 2. body中添加场景<br> 3. 设置天空颜色</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--1. 引入A-Frame库-->
+<script src="js/aframe.min.js"></script>
+<!--2. 添加a-scene，用来存放实体的容器-->
+<a-scene>
+   <!--3. 设置天空颜色-->
+   <a-sky color="#eee"></a-sky>
+</a-scene></textarea>
+					<textarea class="before" hidden></textarea>
+					<textarea class="after" hidden></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="从头开始-2">
+				<h1>从头开始</h1>
+				<h2>场景中添加实体</h2>
+
+				<p>在场景中添加实体，我们用`a-box`来试一下。<br/> 为了显示在舞台中，我们设置了`position`属性。<br/> 大家可以改下position属性，然后执行下看看效果。<br/></p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box position="0 0 -10"><a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="从头开始-3">
+				<h1>从头开始</h1>
+				<h2>设置颜色</h2>
+
+				<p>我们可以给盒子添加颜色，大家可以修改颜色试试看哟！</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--为了看的清楚些，利用scale属性，把盒子变大一些-->
+<!--利用rotation属性，给盒子添加一下旋转-->
+<!--大家改改颜色看，改成其他颜色，改成其他格式的颜色-->
+<a-box color="red" 
+       position="0 0 -10" 
+       scale="2 4 2" 
+       rotation="60 0 0">
+<a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="从头开始-4">
+				<h1>从头开始</h1>
+				<h2>设置纹理</h2>
+
+				<p>我们也可以为盒子设置纹理，选用一个图片作为纹理贴图在盒子上。<br/>注意纹理和颜色一般二选一。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--我们在img里还有02.jpg ~ 05.jpg,大家可以改改看看效果。-->
+<a-box src="img/01.jpg"
+       position="0 0 -10"  
+       scale="2 4 2" 
+       rotation="60 0 0">
+<a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="从头开始-5">
+				<h1>从头开始</h1>
+				<h2>使用资源预设</h2>
+
+				<p>对于一些经常重复使用的资源，需要资源复用，利用`a-assets`实现资源预设管理。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--资源预设-->
+<a-assets>
+   <img id="imgTexture01" src="img/01.jpg" alt="" />
+   <img id="imgTexture02" src="img/02.jpg" alt="" />
+   <img id="imgTexture03" src="img/03.jpg" alt="" />
+   <img id="imgTexture04" src="img/04.jpg" alt="" />
+   <img id="imgTexture05" src="img/05.jpg" alt="" />
+</a-assets>
+<!--使用资源预设，可以试着改改看哟。-->
+<a-box src="#imgTexture03" 
+       position="0 0 -10"  
+       scale="2 4 2" 
+       rotation="0 60 60">
+<a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="从头开始-6">
+				<h1>从头开始</h1>
+				<h2>应用变换</h2>
+
+				<p>我们可以对盒子应用位置、旋转、缩放等变换，这些变换都需要分别设置x、y、z方向。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--
+   position  设置位置，分别设置x,y,z方向的位置
+   rotation  设置旋转，分别设置x,y,z方向的旋转
+   scale     设置缩放，分别设置x,y,z方向的缩放     
+-->
+<a-box color="red" 
+       position="0 0 -10" 
+       scale="2 4 2" 
+       rotation="60 0 0">
+<a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="using-animations-1">
+				<h1>Using animations</h1>
+				<h2>Start making your objects move around the screen.</h2>
+
+				<p>I've added an animation to the box to make it rotate, like you just did. It's quite slow though, how would you make it faster? Can you also change the direction?</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="using-animations-2">
+				<h1>Using animations</h1>
+				<h2>Now try making your own animation.</h2>
+
+				<p>You've managed to change the one I made for you, see if you can make your own! Can you change this animation to make the box go from orange to purple?</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-animation attribute="width" dur="2000" from="1" to="2"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="adding-interactions-1">
+				<h1>Adding interactions</h1>
+				<h2>Change the box&#x27;s colour when you look at it.</h2>
+
+				<p>Let's add something a bit more fun. The box will go purple when you look at it and orange when you look away. See if you can finish this effect off using another animation and <code>mouseleave</code>.</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"> <a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"> <a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="adding-interactions-2">
+				<h1>Adding interactions</h1>
+				<h2>Make the box disappear when you click on it.</h2>
+
+				<p>Nice! We'll make one more that uses <code>scale</code> to make the box tiny when <code>click</code> begins. Just like position, <code>scale</code> needs three numbers.</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"> <a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="making-the-game-1">
+				<h1>Making the game</h1>
+				<h2>Move the box towards the camera.</h2>
+
+				<p>I've put the box a bit further away from the camera. Can you make one more animation that moves it closer? See what happens when the box hits you!</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
+<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation></textarea>
+					<textarea class="before" hidden><a-box invader position="0 0 -20" rotation="0 0 0" color="orange"> <a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation></textarea>
+					<textarea class="after" hidden></a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="making-the-game-2">
+				<h1>Making the game</h1>
+				<h2>Make some exciting different shapes.</h2>
+
+				<p>Here's all your code. I've made the box start in a random position earch game. Try changing the box to a <code>ring</code>, <code>torus</code> or <code>dodecahedron</code>!</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box invader random-position="min: -50 -50 -50; max: 50 50 50" rotation="0 0 0" color="orange">
+<a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+<a-animation attribute="color" dur="500" from="orange" to="purple" begin="mouseenter"></a-animation>
+<a-animation attribute="color" dur="500" from="purple" to="orange" begin="mouseleave"></a-animation>
+<a-animation attribute="scale" dur="500" from="1 1 1" to="0 0 0" begin="click"></a-animation>
+<a-animation attribute="position" dur="10000" to="0 0 0"></a-animation>
+</a-box></textarea>
+					<textarea class="before" hidden></textarea>
+					<textarea class="after" hidden><a-sky color="#eee"></a-sky><a-camera user-height="0"><a-cursor></a-cursor></a-camera></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+		</section>
+
+		<section class="preview">
+			<iframe></iframe>
+			<span class="peer"></span>
+		</section>
+
+		<script src="js/codemirror.min.js"></script>
+		<script src="js/codemirror.autorefresh.min.js"></script>
+		<script src="js/codemirror.xml.min.js"></script>
+		<script src="js/codemirror.javascript.min.js"></script>
+
+		<script src="js/lz-string.min.js"></script>
+		<script src="js/socket.io.min.js"></script>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/index.min.js"></script>
+	</body>
+</html>

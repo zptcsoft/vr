@@ -7,7 +7,7 @@
 node_modules
 
 # Build directories
-build
+#build
 
 # NPM debug log
 npm-debug.log

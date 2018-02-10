@@ -33,6 +33,12 @@ gulp.task('js', () => {
 		.pipe(gulp.dest('./build/js'))
 })
 
+// copy lib files to build
+gulp.task('copy', () => {
+	return gulp.src('./lib/*/*')
+		.pipe(gulp.dest('./build/'))
+})
+
 // Compile handlebars files into html using YAML data
 gulp.task('handlebars', callback => {
 	// Find all YAML files and parse their data
@@ -68,5 +74,5 @@ gulp.task('watch', () => {
 	], ['handlebars'])
 })
 
-gulp.task('default', ['sass', 'js', 'handlebars'])
+gulp.task('default', ['sass', 'js', 'handlebars','copy'])
 gulp.task('live', ['default', 'watch'])

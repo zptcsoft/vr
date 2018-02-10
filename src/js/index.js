@@ -72,19 +72,19 @@ $(function() {
 	var id = Math.random().toString(36).slice(-5);
 
 	// Initialise the socket connection
-	var socket = io.connect();
-
-	socket.on('connect', function() {
-		// Show the generated ID in the editor
-		$('span.peer').text(id);
-
-		// Send the register event with the generated ID
-		socket.emit('register', id);
-	});
-
-	// Handle pull request from viewer
-	socket.on('pull', function(viewer) {
-		// Send the push event with the compressed code
-		socket.emit('push', viewer, code);
-	});
+//	var socket = io.connect();
+//
+//	socket.on('connect', function() {
+//		// Show the generated ID in the editor
+//		$('span.peer').text(id);
+//
+//		// Send the register event with the generated ID
+//		socket.emit('register', id);
+//	});
+//
+//	// Handle pull request from viewer
+//	socket.on('pull', function(viewer) {
+//		// Send the push event with the compressed code
+//		socket.emit('push', viewer, code);
+//	});
 });

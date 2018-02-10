@@ -1,24 +1,128 @@
-title: Using animations
+title: 使用动画
 
 sections:
-  - subtitle: Start making your objects move around the screen.
+  - subtitle: 添加动画
     instruction: >-
-      I've added an animation to the box to make it rotate, like you just did.
-      It's quite slow though, how would you make it faster?
-      Can you also change the direction?
+            在实体标签中使用`a-animation`标签添加动画
     before: >-
-      <a-box invader position="0 0 -3" rotation="0 0 0" color="orange">
+      <a-scene>
     code: |-
-      <a-animation attribute="rotation" dur="20000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <!--
+                attribute 设置动画属性        默认值为rotation
+                from      设置动画开始值    默认值为当前值
+                to        设置动画结束值    默认值为none
+            -->
+            <a-animation to="0 360 360"></a-animation>
+      </a-box>
     after: >-
-      </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
-  - subtitle: Now try making your own animation.
+      </a-scene>
+  - subtitle: 设置动画循环方式
     instruction: >-
-      You've managed to change the one I made for you, see if you can make your own!
-      Can you change this animation to make the box go from orange to purple?
+      repeat属性设置动画循环方式<br>
+                设置数字指定次数或设置关键字`indefinite`无限播放<br>
+                 默认值为0
     before: >-
-      <a-box invader position="0 0 -3" rotation="0 0 0" color="orange"><a-animation attribute="rotation" dur="2000" from="0 0 0" to="360 360 0" repeat="indefinite" easing="linear"></a-animation>
+      <a-scene>
     code: |-
-      <a-animation attribute="width" dur="2000" from="1" to="2"></a-animation>
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <!--
+                repeat    设置动画循环方式      默认值为0
+            -->
+            <a-animation attribute="rotation" 
+                         to="60 360 360"
+                         repeat="infinite"></a-animation>
+      </a-box>
     after: >-
-      </a-box><a-sky color="#eee"></a-sky><a-camera user-height="0"></a-camera>
+      </a-scene>
+  - subtitle: 设置动画时间
+    instruction: >-
+      dur属性设置动画持续时间，毫秒为单位，默认值为1000。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <!--
+                dur    设置动画循环持续时间       默认值为1000
+            -->
+            <a-animation attribute="rotation" 
+                         to="60 360 360"
+                         repeat="infinite"
+                         dur="2000"></a-animation>
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 设置动画方向
+    instruction: >-
+      direction属性设置动画方向，normal, reverse, alternate, alternateReverse四选一。默认值为normal。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <!--
+                direction   属性设置动画方向
+            -->
+            <a-animation attribute="color"
+                         from="red"
+                         to="green"
+                         repeat="infinite"
+                         direction="alternate"
+                         dur="2000"></a-animation>
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 设置动画时间之外的状态
+    instruction: >-
+      fill属性设置动画时间之外的状态，none， forwards， backwards， both四选一。默认值为forwards。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <!--
+                fill    设置动画时间之外的状态
+            -->
+            <a-animation attribute="color"
+                         from="red"
+                         to="green"
+                         repeat="2"
+                         dur="2000"
+                         direction="normal"
+                         fill="backwards"></a-animation>
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 控制动画
+    instruction: >-
+      delay 动画延迟时间或动画开始事件<br>
+      begin 动画开始事件<br>
+      edn   动画结束事件
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+            <a-animation attribute="color"
+                         from="red"
+                         to="green"
+                         repeat="infinite"
+                         dur="10000"
+                         direction="alternate"
+                         begin="mouseenter"
+                         end="mouseleave"
+                         ></a-animation>
+      </a-box>
+      <a-camera><a-cursor></a-cursor></a-camera>
+    after: >-
+      </a-scene>
+  - subtitle: 应用多个动画
+    instruction: >-
+            使用多个`a-animation`定制多个动画
+    before: >-
+      <a-scene>
+      <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0">
+    code: |-
+      <a-animation attribute="color" from="red" to="green" repeat="infinite" dur="10000" direction="alternate"></a-animation>
+      <a-animation attribute="scale" from="2 4 2" to="1 1 0.5" repeat="infinite" dur="2000" direction="alternate"></a-animation>
+    after: >-
+      </a-box>
+      <a-camera><a-cursor></a-cursor></a-camera>
+      </a-scene>

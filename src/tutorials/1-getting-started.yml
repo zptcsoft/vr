@@ -1,4 +1,4 @@
-title: 从头开始
+title: 创建场景
 
 sections:
   - subtitle: 准备工作
@@ -94,6 +94,6 @@ sections:
             position="0 0 -10" 
             scale="2 4 2" 
             rotation="60 0 0">
-     <a-box>
+     </a-box>
     after: >-
      </a-scene>

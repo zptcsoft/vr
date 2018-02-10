@@ -40,6 +40,12 @@ section {
 	}
 }
 
+article.fullscreen {
+    padding: 0 20vw;
+    padding-bottom: 15vh;
+    width: 100vw;
+}
+
 article {
 	display: none;
 	flex-direction: column;

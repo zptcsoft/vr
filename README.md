@@ -3,7 +3,7 @@
 > 本文为A-Frame简明教程系列文章的第零篇，大家可以到[专题](https://www.jianshu.com/c/254a5e9d2eb9)里了解更多。
 
 ## 引子
-今天在Github上浏览教程，偶然间发现一个在线学习的[A-Frame教程](https://vr.dewardt.uk/#first-steps-1)，忍不住fork过来探索了一番，于是就有啦[在线学习体验系统](https://zptcsoft.github.io/vr/build/)，也欢迎大家star、fork。
+今天在Github上浏览教程，偶然间发现一个在线学习的[A-Frame教程](https://vr.dewardt.uk/#first-steps-1)，忍不住fork过来探索了一番，欢迎大家star、fork。
 
 ## 系统截图
 贴几张图大家提前感受下。

@@ -1,0 +1,176 @@
+title: 基本形状
+titleEN: shapes
+
+sections:
+  - subtitle: 使用盒子-形状属性
+    instruction: >-
+      `a-box`是最基本最常用的形状。<br>
+      width、height、depth分别代表x,y,z方向的长度。<br>
+      segments-width、segments-height、segements-depth分别代表x,y,z方向的分节数，默认值为1。 <br>
+            大家可以利用前面所学的变换、动画等知识，体验效果。
+    before: >-
+      <a-scene>
+    code: |-
+      <!--wireframe为true时，可以看到分节数-->
+      <a-box color="red" position="0 0 -10" rotation="60 0 0"
+             width="1" height="2" depth="3"
+             segments-width="1" segments-height="2" segments-depth="3"
+             wireframe="false">
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 使用盒子-材质属性-线框
+    instruction: >-
+      wireframe属性，设置是否显示为线框，默认值为false。<br>
+      wireframe-linewidth属性，设置线框线宽度, 默认值为2。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box color="red" position="0 0 -10" rotation="0 0 0"
+             segments-width="1" segments-height="2" segments-depth="3"
+             wireframe="true"
+             wireframe-linewidth="2">
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 使用盒子-材质属性-纹理
+    instruction: >-
+      color属性，设置盒子颜色。默认为白色。<br>
+      src属性，设置盒子纹理，默认为none。<br>
+      metalness属性，设置盒子的金属光泽，默认为0。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box src="img/05.jpg" position="0 0 -10" scale="4 2 3" rotation="60 -20 0" metalness="2">
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 使用盒子-材质属性-纹理
+    instruction: >-
+      repeat属性，设置盒子纹理平铺方式，可以分别设置x、y方向，默认值为1 1。<br>
+      roughness属性，设置盒子纹理的粗糙程度，默认值为0.5。<br>
+            别忘了改变数值，试试效果哟。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-box position="0 0 -10" scale="10 10 2" rotation="0 0 0"
+             src="img/06.jpg" 
+             repeat="10 20"
+             roughness="0.1">
+      </a-box>
+    after: >-
+      </a-scene>
+  - subtitle: 使用球体
+    instruction: >-
+      `a-sphere`是最常用的形状，可以用来表示球体或多面体。<br>
+      radius属性，代表球的大小，默认值为1。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-sphere position="0 0 -10" color="#363"
+                radius="3">
+      </a-sphere>
+    after: >-
+      </a-scene>
+  - subtitle: 使用多面体
+    instruction: >-
+      segments-width 经度上的切片数，默认值为36。<br>
+      segments-height 维度上的切片数，默认值为18。
+    before: >-
+      <a-scene>
+    code: |-
+      <!--利用线框便于显示形状-->
+      <a-sphere position="0 0 -10" color="green" radius="3" segments-width="3" segments-height="2" wireframe="true">
+      </a-sphere>
+    after: >-
+      </a-scene>
+  - subtitle: 球体切割-经度
+    instruction: >-
+      phi-start 球体经度上开始度数，默认值为0。<br>
+      phi-length 球体经度上跨越度数，默认值为360。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-sphere position="0 0 -10" color="green" radius="3" wireframe="true"
+                phi-start="0" phi-length="120">
+          <!--为了显示方便，添加点动画-->
+          <a-animation attribute="rotation" dur="10000" to="60 360 360" repeat="infinite"></a-animation>
+      </a-sphere>
+    after: >-
+      </a-scene>
+  - subtitle: 球体切割-纬度
+    instruction: >-
+      theta-start 球体纬度上开始度数，默认值为0。<br>
+      theta-length 球体纬度上跨越度数，默认值为180。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-sphere position="0 0 -10" color="green" radius="3" wireframe="true"
+                theta-start="30" theta-length="60">
+          <!--为了显示方便，添加点动画-->
+          <a-animation attribute="rotation" dur="10000" to="60 360 360" repeat="infinite"></a-animation>
+      </a-sphere>
+    after: >-
+      </a-scene>
+  - subtitle: 使用圆柱
+    instruction: >-
+      `a-cylinder`可以实现圆柱、棱柱等。<br>
+      radius属性，半径，默认值为1。<br>
+      height属性，高度，默认值为1。<br>
+      segments-radial属性，可以实现棱柱效果，默认值为36。
+    before: >-
+      <a-scene>
+    code: |-
+      <!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+      <a-cylinder position="0 0 -10" color="#363"
+                  radius="3" height="2" segments-radial="36">
+      </a-cylinder>
+    after: >-
+      </a-scene>
+  - subtitle: 使用圆柱-pacman
+    instruction: >-
+      theta-start 球体纬度上开始度数，默认值为0。<br>
+      theta-length 球体纬度上跨越度数，默认值为360。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-cylinder position="0 0 -10" color="#363" theta-start="90" theta-length="320" radius="2" height="1" rotation="90 90 90">
+        <a-animation attribute="theta-length" from="320" to="360" dur="2000" repeat="infinite">
+      </a-cylinder>
+    after: >-
+      </a-scene>
+  - subtitle: 使用圆台
+    instruction: >-
+      `a-cone`可以实现圆台、圆锥、棱锥等效果。<br>
+      radius-top属性，上圆半径，默认值为0.8。<br>
+      radius-bottom属性，下圆半径，默认值为1。<br>
+      height属性，高度，默认值为1。<br>
+      segments-radial属性，可以实现棱柱效果，默认值为36。
+    before: >-
+      <a-scene>
+    code: |-
+      <!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+      <a-cone position="0 0 -10" src="img/03.jpg"
+              radius-top="1" radius-bottom="2" height="2" 
+              segments-radial="4">
+      </a-cone>
+    after: >-
+      </a-scene>
+  - subtitle: 使用圆环
+    instruction: >-
+      `a-ring`可以实现圆台、圆锥、棱锥等效果。<br>
+      radius-inner属性，内圆半径，默认值为0.8。<br>
+      radius-outer属性，下圆半径，默认值为1.2。<br>
+      height属性，高度，默认值为1。<br>
+      segments-phi属性，可以实现棱柱效果，默认值为10。<br>
+      segments-theta属性，默认值为32。
+    before: >-
+      <a-scene>
+    code: |-
+      <!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+      <a-ring position="0 0 -10" color="orange"
+              radius-inner="1" radius-outer="1.8" height="1" 
+              segments-phi="10" segments-theta="32">
+      </a-ring>
+    after: >-
+      </a-scene>

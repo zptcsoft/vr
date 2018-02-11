@@ -14,8 +14,22 @@
 	</head>
 
 	<body>
+		<header>
+			<div class="overlay">
+			  <ul class="nav">
+			   		<li><a href="javascript:location.href='#scene-1';location.reload();">创建场景</a></li>
+			   		<li><a href="javascript:location.href='#animation-1';location.reload();">使用动画</a></li>
+			   		<li><a href="javascript:location.href='#shapes-1';location.reload();">基本形状</a></li>
+			  </ul>
+			</div>
+			<div class="hambagah">
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			</div>
+		</header>
 		<section class="tutorial">
-			<article id="创建场景-1">
+			<article id="scene-1">
 				<h1>创建场景</h1>
 				<h2>准备工作</h2>
 
@@ -37,7 +51,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="创建场景-2">
+			<article id="scene-2">
 				<h1>创建场景</h1>
 				<h2>场景中添加实体</h2>
 
@@ -53,7 +67,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="创建场景-3">
+			<article id="scene-3">
 				<h1>创建场景</h1>
 				<h2>设置颜色</h2>
 
@@ -76,7 +90,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="创建场景-4">
+			<article id="scene-4">
 				<h1>创建场景</h1>
 				<h2>设置纹理</h2>
 
@@ -97,7 +111,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="创建场景-5">
+			<article id="scene-5">
 				<h1>创建场景</h1>
 				<h2>使用资源预设</h2>
 
@@ -126,7 +140,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="创建场景-6">
+			<article id="scene-6">
 				<h1>创建场景</h1>
 				<h2>应用变换</h2>
 
@@ -151,7 +165,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-1">
+			<article id="animation-1">
 				<h1>使用动画</h1>
 				<h2>添加动画</h2>
 
@@ -174,7 +188,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-2">
+			<article id="animation-2">
 				<h1>使用动画</h1>
 				<h2>设置动画循环方式</h2>
 
@@ -199,7 +213,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-3">
+			<article id="animation-3">
 				<h1>使用动画</h1>
 				<h2>设置动画时间</h2>
 
@@ -223,7 +237,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-4">
+			<article id="animation-4">
 				<h1>使用动画</h1>
 				<h2>设置动画方向</h2>
 
@@ -249,7 +263,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-5">
+			<article id="animation-5">
 				<h1>使用动画</h1>
 				<h2>设置动画时间之外的状态</h2>
 
@@ -276,7 +290,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-6">
+			<article id="animation-6">
 				<h1>使用动画</h1>
 				<h2>控制动画</h2>
 
@@ -303,7 +317,7 @@
 					</fieldset>
 				</div>
 			</article>
-			<article id="使用动画-7">
+			<article id="animation-7">
 				<h1>使用动画</h1>
 				<h2>应用多个动画</h2>
 
@@ -313,6 +327,239 @@
 <a-animation attribute="scale" from="2 4 2" to="1 1 0.5" repeat="infinite" dur="2000" direction="alternate"></a-animation></textarea>
 					<textarea class="before" hidden><a-scene> <a-box color="red" position="0 0 -10" scale="2 4 2" rotation="60 0 0"></textarea>
 					<textarea class="after" hidden></a-box> <a-camera><a-cursor></a-cursor></a-camera> </a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-1">
+				<h1>基本形状</h1>
+				<h2>使用盒子-形状属性</h2>
+
+				<p>`a-box`是最基本最常用的形状。<br> width、height、depth分别代表x,y,z方向的长度。<br> segments-width、segments-height、segements-depth分别代表x,y,z方向的分节数，默认值为1。 <br>
+      大家可以利用前面所学的变换、动画等知识，体验效果。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--wireframe为true时，可以看到分节数-->
+<a-box color="red" position="0 0 -10" rotation="60 0 0"
+       width="1" height="2" depth="3"
+       segments-width="1" segments-height="2" segments-depth="3"
+       wireframe="false">
+</a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-2">
+				<h1>基本形状</h1>
+				<h2>使用盒子-材质属性-线框</h2>
+
+				<p>wireframe属性，设置是否显示为线框，默认值为false。<br> wireframe-linewidth属性，设置线框线宽度, 默认值为2。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box color="red" position="0 0 -10" rotation="0 0 0"
+       segments-width="1" segments-height="2" segments-depth="3"
+       wireframe="true"
+       wireframe-linewidth="2">
+</a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-3">
+				<h1>基本形状</h1>
+				<h2>使用盒子-材质属性-纹理</h2>
+
+				<p>color属性，设置盒子颜色。默认为白色。<br> src属性，设置盒子纹理，默认为none。<br> metalness属性，设置盒子的金属光泽，默认为0。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box src="img/05.jpg" position="0 0 -10" scale="4 2 3" rotation="60 -20 0" metalness="2">
+</a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-4">
+				<h1>基本形状</h1>
+				<h2>使用盒子-材质属性-纹理</h2>
+
+				<p>repeat属性，设置盒子纹理平铺方式，可以分别设置x、y方向，默认值为1 1。<br> roughness属性，设置盒子纹理的粗糙程度，默认值为0.5。<br>
+      别忘了改变数值，试试效果哟。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-box position="0 0 -10" scale="10 10 2" rotation="0 0 0"
+       src="img/06.jpg" 
+       repeat="10 20"
+       roughness="0.1">
+</a-box></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-5">
+				<h1>基本形状</h1>
+				<h2>使用球体</h2>
+
+				<p>`a-sphere`是最常用的形状，可以用来表示球体或多面体。<br> radius属性，代表球的大小，默认值为1。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-sphere position="0 0 -10" color="#363"
+          radius="3">
+</a-sphere></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-6">
+				<h1>基本形状</h1>
+				<h2>使用多面体</h2>
+
+				<p>segments-width 经度上的切片数，默认值为36。<br> segments-height 维度上的切片数，默认值为18。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--利用线框便于显示形状-->
+<a-sphere position="0 0 -10" color="green" radius="3" segments-width="3" segments-height="2" wireframe="true">
+</a-sphere></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-7">
+				<h1>基本形状</h1>
+				<h2>球体切割-经度</h2>
+
+				<p>phi-start 球体经度上开始度数，默认值为0。<br> phi-length 球体经度上跨越度数，默认值为360。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-sphere position="0 0 -10" color="green" radius="3" wireframe="true"
+          phi-start="0" phi-length="120">
+    <!--为了显示方便，添加点动画-->
+    <a-animation attribute="rotation" dur="10000" to="60 360 360" repeat="infinite"></a-animation>
+</a-sphere></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-8">
+				<h1>基本形状</h1>
+				<h2>球体切割-纬度</h2>
+
+				<p>theta-start 球体纬度上开始度数，默认值为0。<br> theta-length 球体纬度上跨越度数，默认值为180。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-sphere position="0 0 -10" color="green" radius="3" wireframe="true"
+          theta-start="30" theta-length="60">
+    <!--为了显示方便，添加点动画-->
+    <a-animation attribute="rotation" dur="10000" to="60 360 360" repeat="infinite"></a-animation>
+</a-sphere></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-9">
+				<h1>基本形状</h1>
+				<h2>使用圆柱</h2>
+
+				<p>`a-cylinder`可以实现圆柱、棱柱等。<br> radius属性，半径，默认值为1。<br> height属性，高度，默认值为1。<br> segments-radial属性，可以实现棱柱效果，默认值为36。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+<a-cylinder position="0 0 -10" color="#363"
+            radius="3" height="2" segments-radial="36">
+</a-cylinder></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-10">
+				<h1>基本形状</h1>
+				<h2>使用圆柱-pacman</h2>
+
+				<p>theta-start 球体纬度上开始度数，默认值为0。<br> theta-length 球体纬度上跨越度数，默认值为360。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-cylinder position="0 0 -10" color="#363" theta-start="90" theta-length="320" radius="2" height="1" rotation="90 90 90">
+  <a-animation attribute="theta-length" from="320" to="360" dur="2000" repeat="infinite">
+</a-cylinder></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-11">
+				<h1>基本形状</h1>
+				<h2>使用圆台</h2>
+
+				<p>`a-cone`可以实现圆台、圆锥、棱锥等效果。<br> radius-top属性，上圆半径，默认值为0.8。<br> radius-bottom属性，下圆半径，默认值为1。<br> height属性，高度，默认值为1。<br> segments-radial属性，可以实现棱柱效果，默认值为36。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+<a-cone position="0 0 -10" src="img/03.jpg"
+        radius-top="1" radius-bottom="2" height="2" 
+        segments-radial="4">
+</a-cone></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-12">
+				<h1>基本形状</h1>
+				<h2>使用圆环</h2>
+
+				<p>`a-ring`可以实现圆台、圆锥、棱锥等效果。<br> radius-inner属性，内圆半径，默认值为0.8。<br> radius-outer属性，下圆半径，默认值为1.2。<br> height属性，高度，默认值为1。<br> segments-phi属性，可以实现棱柱效果，默认值为10。<br> segments-theta属性，默认值为32。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><!--大家可以试着改改数字看看,例如把最后一个值改成3-->
+<a-ring position="0 0 -10" src="img/03.jpg"
+        radius-inner="1" radius-outer="1.8" height="1" 
+        segments-phi="10" segments-theta="32">
+</a-ring></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
 					<fieldset>
 						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
 						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>

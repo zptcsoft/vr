@@ -88,3 +88,10 @@ $(function() {
 //		socket.emit('push', viewer, code);
 //	});
 });
+
+//header部分菜单
+$('.hambagah').click(function () {
+	$(this).toggleClass('active');
+	$('.nav').toggleClass('active');
+	$('.overlay').toggleClass('active');
+});

@@ -14,10 +14,24 @@
 	</head>
 
 	<body>
+		<header>
+			<div class="overlay">
+			  <ul class="nav">
+			  	{{# each tutorials }}
+			   		<li><a href="javascript:location.href='#{{ titleEN }}-1';location.reload();">{{ title }}</a></li>
+			    {{/ each }}
+			  </ul>
+			</div>
+			<div class="hambagah">
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			</div>
+		</header>
 		<section class="tutorial">
 			{{# each tutorials }}
 			{{# each sections }}
-			<article id="{{ anchor ../title @index }}">
+			<article id="{{ anchor ../titleEN @index }}">
 				<h1>{{ ../title }}</h1>
 				<h2>{{ subtitle }}</h2>
 

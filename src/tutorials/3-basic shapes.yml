@@ -149,7 +149,6 @@ sections:
     before: >-
       <a-scene>
     code: |-
-      <!--大家可以试着改改数字看看,例如把最后一个值改成3-->
       <a-cone position="0 0 -10" src="img/03.jpg"
               radius-top="1" radius-bottom="2" height="2" 
               segments-radial="4">
@@ -167,10 +166,23 @@ sections:
     before: >-
       <a-scene>
     code: |-
-      <!--大家可以试着改改数字看看,例如把最后一个值改成3-->
       <a-ring position="0 0 -10" color="orange"
               radius-inner="1" radius-outer="1.8" height="1" 
               segments-phi="10" segments-theta="32">
       </a-ring>
+    after: >-
+      </a-scene>
+  - subtitle: 使用四面体、八面体、十二面体、二十面体
+    instruction: >-
+      `a-tetrahedron` 四面体<br>
+      `a-octahedron` 八面体<br>
+      `a-dodecahedron` 十二面体<br>
+      `a-icosahedron` 二十面体<br>
+      radius属性，半径，默认值为1。
+    before: >-
+      <a-scene>
+    code: |-
+      <a-tetrahedron position="0 0 -10" color="orange" radius="3">
+      </a-tetrahedron>
     after: >-
       </a-scene>

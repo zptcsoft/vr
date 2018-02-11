@@ -533,8 +533,7 @@
 
 				<p>`a-cone`可以实现圆台、圆锥、棱锥等效果。<br> radius-top属性，上圆半径，默认值为0.8。<br> radius-bottom属性，下圆半径，默认值为1。<br> height属性，高度，默认值为1。<br> segments-radial属性，可以实现棱柱效果，默认值为36。</p>
 				<div class="code">
-					<textarea data-mode="xml" hidden><!--大家可以试着改改数字看看,例如把最后一个值改成3-->
-<a-cone position="0 0 -10" src="img/03.jpg"
+					<textarea data-mode="xml" hidden><a-cone position="0 0 -10" src="img/03.jpg"
         radius-top="1" radius-bottom="2" height="2" 
         segments-radial="4">
 </a-cone></textarea>
@@ -553,11 +552,27 @@
 
 				<p>`a-ring`可以实现圆台、圆锥、棱锥等效果。<br> radius-inner属性，内圆半径，默认值为0.8。<br> radius-outer属性，下圆半径，默认值为1.2。<br> height属性，高度，默认值为1。<br> segments-phi属性，可以实现棱柱效果，默认值为10。<br> segments-theta属性，默认值为32。</p>
 				<div class="code">
-					<textarea data-mode="xml" hidden><!--大家可以试着改改数字看看,例如把最后一个值改成3-->
-<a-ring position="0 0 -10" src="img/03.jpg"
+					<textarea data-mode="xml" hidden><a-ring position="0 0 -10" color="orange"
         radius-inner="1" radius-outer="1.8" height="1" 
         segments-phi="10" segments-theta="32">
 </a-ring></textarea>
+					<textarea class="before" hidden><a-scene></textarea>
+					<textarea class="after" hidden></a-scene></textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			<article id="shapes-13">
+				<h1>基本形状</h1>
+				<h2>使用四面体、八面体、十二面体、二十面体</h2>
+
+				<p>`a-tetrahedron` 四面体<br> `a-octahedron` 八面体<br> `a-dodecahedron` 十二面体<br> `a-icosahedron` 二十面体<br> radius属性，半径，默认值为1。</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden><a-tetrahedron position="0 0 -10" color="orange" radius="3">
+</a-tetrahedron></textarea>
 					<textarea class="before" hidden><a-scene></textarea>
 					<textarea class="after" hidden></a-scene></textarea>
 					<fieldset>

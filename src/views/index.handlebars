@@ -1,71 +1,208 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<title>A-Frame简明教程</title>
 		<meta charset="utf-8">
-
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
-
-		<link rel="stylesheet" href="css/codemirror.min.css">
-		<link rel="stylesheet" href="css/theme.min.css">
-
 		<link rel="stylesheet" href="css/index.min.css">
+		<style>
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+				background-color: #043A4F;
+			}
+			
+			h1,
+			h3 {
+				position: fixed;
+				z-index: 10;
+				color: white;
+				margin: 0;
+				padding: 0;
+				text-align: left;
+			}
+			
+			h1 {
+				left: 6vw;
+				top: 20vw;
+				font-size: 6vw;
+				line-height: 6vw;
+				font-weight: 200;
+				font-family: 'Comfortaa', sans-serif;
+			}
+			
+			h3 {
+				left: 6vw;
+				top: 27vw;
+				font-size: 2.4vw;
+				opacity: 0.8;
+				padding: 5px 9px;
+				font-weight: 200;
+				display: inline-block;
+			}
+			
+			.svgs {
+				width: 100%;
+				height: 44vw;
+				position: absolute;
+				top: 0;
+				z-index: 50;
+			}
+			
+			.svgs .button {
+				position: absolute;
+				bottom: 0vw;
+				left: 6vw;
+				width: 20vw;
+				height: 6vw;
+				font-size: 3vw;
+				letter-spacing: .3vw;
+				background-color: #e53935;
+				border: 0;
+				border-radius: 4px;
+				z-index: 1;
+				color: white;
+				font-family: 'Comfortaa', sans-serif;
+				font-weight: 300;
+				-webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+				box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+				-webkit-transform: skew(-20deg);
+				transform: skew(-20deg);
+			}
+			
+			.svgs .button span {
+				-webkit-transform: skew(20deg);
+				transform: skew(20deg);
+				display: block;
+			}
+			
+			.svg {
+				width: 100%;
+				height: 46vw;
+			}
+			
+			.scene--full {
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
 	</head>
 
 	<body>
-		<header>
-			<div class="overlay">
-			  <ul class="nav">
-			  	{{# each tutorials }}
-			   		<li><a href="javascript:location.href='#{{ titleEN }}-1';location.reload();">{{ title }}</a></li>
-			    {{/ each }}
-			        <li><a href="//www.jianshu.com/c/254a5e9d2eb9" target="_blank">详细教程</a></li>
-			  </ul>
-			</div>
-			<div class="hambagah">
-			  <div class="bar"></div>
-			  <div class="bar"></div>
-			  <div class="bar"></div>
-			</div>
-		</header>
-		<section class="tutorial">
-			{{# each tutorials }}
-			{{# each sections }}
-			<article id="{{ anchor ../titleEN @index }}">
-				<h1>{{ ../title }}</h1>
-				<h2>{{ subtitle }}</h2>
+		<div class="svgs">
+			<h1>A-Frame简明教程</h1>
+			<h3><img src="https://mozvr.com/static/img/logo.svg" alt="" style="vertical-align: middle;"  />荣誉出品的A-Frame之沉浸式、在线互动体验教程</h3>
+			<a class="button" href="index2.html"><span>开始学习</span></a>
+			<img src="img/X.svg" class="svg" />
+			<canvas class="scene scene--full" id="scene"></canvas>
+		</div>
+		<script src="js/three.min.js"></script>
+		<script src="js/perlin.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script type="text/javascript">
+			setTimeout(() => document.body.classList.add('render'), 60);
 
-				<p>{{{ instruction }}}</p>
-				<div class="code">
-					<textarea data-mode="xml" hidden>{{{ code }}}</textarea>
-					<textarea class="before" hidden>{{{ before }}}</textarea>
-					<textarea class="after" hidden>{{{ after }}}</textarea>
-					<fieldset>
-						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
-						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
-						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
-					</fieldset>
-				</div>
-			</article>
-			{{/ each }}
-			{{/ each }}
-		</section>
+			var canvas = document.querySelector('canvas');
+			var width = canvas.offsetWidth,
+				height = canvas.offsetHeight;
 
-		<section class="preview">
-			<iframe></iframe>
-			<span class="peer"></span>
-		</section>
+			var renderer = new THREE.WebGLRenderer({
+				canvas: canvas,
+				antialias: true,
+				alpha: true
+			});
+			renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
+			renderer.setSize(width, height);
+			renderer.setClearColor(0x000000, 0);
 
-		<script src="js/codemirror.min.js"></script>
-		<script src="js/codemirror.autorefresh.min.js"></script>
-		<script src="js/codemirror.xml.min.js"></script>
-		<script src="js/codemirror.javascript.min.js"></script>
+			var scene = new THREE.Scene();
 
-		<script src="js/lz-string.min.js"></script>
-		<script src="js/socket.io.min.js"></script>
+			var camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+			camera.position.set(0, 0, 350);
 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/index.min.js"></script>
+			var sphere = new THREE.Group();
+			scene.add(sphere);
+			var material = new THREE.LineBasicMaterial({
+				color: 0xffffff
+			});
+			var linesAmount = 18;
+			var radius = 100;
+			var verticesAmount = 50;
+			for(var j = 0; j < linesAmount; j++) {
+				var index = j;
+				var geometry = new THREE.Geometry();
+				geometry.y = (index / linesAmount) * radius * 2;
+				for(var i = 0; i <= verticesAmount; i++) {
+					var vector = new THREE.Vector3();
+					vector.x = Math.cos(i / verticesAmount * Math.PI * 2);
+					vector.z = Math.sin(i / verticesAmount * Math.PI * 2);
+					vector._o = vector.clone();
+					geometry.vertices.push(vector);
+				}
+				var line = new THREE.Line(geometry, material);
+				sphere.add(line);
+			}
+
+			function updateVertices(a) {
+				for(var j = 0; j < sphere.children.length; j++) {
+					var line = sphere.children[j];
+					
+					line.geometry.y += 0.3;
+					if(line.geometry.y > radius * 2) {
+						line.geometry.y = 0;
+					}
+					var radiusHeight = Math.sqrt(line.geometry.y * (2 * radius - line.geometry.y));
+					for(var i = 0; i <= verticesAmount; i++) {
+						var vector = line.geometry.vertices[i];
+						var ratio = noise.simplex3(vector.x * 0.009, vector.z * 0.009 + a * 0.0006, line.geometry.y * 0.009) * 15;
+						vector.copy(vector._o);
+						vector.multiplyScalar(radiusHeight + ratio);
+						vector.y = line.geometry.y - radius;
+					}
+					line.geometry.verticesNeedUpdate = true;
+				}
+			}
+
+			function render(a) {
+				requestAnimationFrame(render);
+				updateVertices(a);
+				renderer.render(scene, camera);
+			}
+
+			function onResize() {
+				canvas.style.width = '';
+				canvas.style.height = '';
+				width = canvas.offsetWidth;
+				height = canvas.offsetHeight;
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix();
+				renderer.setSize(width, height);
+			}
+
+			var mouse = new THREE.Vector2(0.8, 0.5);
+
+			function onMouseMove(e) {
+				mouse.y = e.clientY / window.innerHeight;
+				TweenMax.to(sphere.rotation, 2, {
+					x: (mouse.y * 1),
+					ease: Power1.easeOut
+				});
+			}
+
+			requestAnimationFrame(render);
+			window.addEventListener("mousemove", onMouseMove);
+			var resizeTm;
+			window.addEventListener("resize", function() {
+				resizeTm = clearTimeout(resizeTm);
+				resizeTm = setTimeout(onResize, 200);
+			});
+		</script>
 	</body>
+
 </html>

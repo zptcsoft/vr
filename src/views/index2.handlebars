@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A-Frame简明教程</title>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:500,700,800,900|Roboto+Mono">
+
+		<link rel="stylesheet" href="css/codemirror.min.css">
+		<link rel="stylesheet" href="css/theme.min.css">
+
+		<link rel="stylesheet" href="css/index.min.css">
+	</head>
+
+	<body>
+		<header>
+			<div class="overlay">
+			  <ul class="nav">
+			  	{{# each tutorials }}
+			   		<li><a href="javascript:location.href='#{{ titleEN }}-1';location.reload();">{{ title }}</a></li>
+			    {{/ each }}
+			        <li><a href="//www.jianshu.com/c/254a5e9d2eb9" target="_blank">详细教程</a></li>
+			  </ul>
+			</div>
+			<div class="hambagah">
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			  <div class="bar"></div>
+			</div>
+		</header>
+		<section class="tutorial">
+			{{# each tutorials }}
+			{{# each sections }}
+			<article id="{{ anchor ../titleEN @index }}">
+				<h1>{{ ../title }}</h1>
+				<h2>{{ subtitle }}</h2>
+
+				<p>{{{ instruction }}}</p>
+				<div class="code">
+					<textarea data-mode="xml" hidden>{{{ code }}}</textarea>
+					<textarea class="before" hidden>{{{ before }}}</textarea>
+					<textarea class="after" hidden>{{{ after }}}</textarea>
+					<fieldset>
+						<a class="execute" href="#"><i class="fa fa-bolt"></i><span>执行</span></a>
+						<a class="next" href="#"><span>下一个</span><i class="fa fa-caret-right"></i></a>
+						<a class="previous" href="#"><i class="fa fa-caret-left"></i><span>上一个</span></a>
+					</fieldset>
+				</div>
+			</article>
+			{{/ each }}
+			{{/ each }}
+		</section>
+
+		<section class="preview">
+			<iframe></iframe>
+			<span class="peer"></span>
+		</section>
+
+		<script src="js/codemirror.min.js"></script>
+		<script src="js/codemirror.autorefresh.min.js"></script>
+		<script src="js/codemirror.xml.min.js"></script>
+		<script src="js/codemirror.javascript.min.js"></script>
+
+		<script src="js/lz-string.min.js"></script>
+		<script src="js/socket.io.min.js"></script>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/index.min.js"></script>
+	</body>
+</html>

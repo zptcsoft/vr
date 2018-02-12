@@ -1,23 +1,18 @@
 # A-Frame简明教程之在线体验课程
 
-> 本文为A-Frame简明教程系列文章的第零篇，大家可以到[专题](https://www.jianshu.com/c/254a5e9d2eb9)里了解更多。
+> 本教程随同简书上A-Frame简明教程[专题](https://www.jianshu.com/c/254a5e9d2eb9)同步更新，欢迎大家到专题详细阅读。
 
-## 引子
-今天在Github上浏览教程，偶然间发现一个在线学习的[A-Frame教程](https://vr.dewardt.uk/#first-steps-1)，忍不住fork过来探索了一番，欢迎大家star、fork。
+## A-Frame简介
+A-Frame是一个利用web技术创建虚拟现实的框架，由**moz://a**维护支持。利用A-Frame，我们可以轻松实现虚拟现实，是webVR的一种实现方式。
 
-## 系统截图
-贴几张图大家提前感受下。
-![01.PNG](http://upload-images.jianshu.io/upload_images/197800-bceb1ad3bdc009bd.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![02.PNG](http://upload-images.jianshu.io/upload_images/197800-cce706af959a187f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![03.PNG](http://upload-images.jianshu.io/upload_images/197800-bc2a7a402fa04ab5.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-## 系统地址
+## 教程地址
 -----------------------------------------
-[系统地址](https://zptcsoft.github.io/vr/build/)         [github仓库](https://github.com/zptcsoft/vr)
+[在线学习平台地址](https://zptcsoft.github.io/vr/build/)        [github仓库](https://github.com/zptcsoft/vr)        [github教程](https://github.com/zptcsoft/vr/Issues/)       [简书专题](https://www.jianshu.com/c/254a5e9d2eb9)
 
 -----------------------------------------
+
+## 教程截图
+
 
 ## 待续
 接下来，我们将继续研究A-Frame，敬请期待！欢迎大家批评指正！！

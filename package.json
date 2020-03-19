@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zcutner/vr.git"
+    "url": "https://github.com/zptcsoft/vr.git"
   },
   "dependencies": {
     "express": "^4.15.4",
@@ -24,6 +24,6 @@
     "start": "node app.js"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.2"
   }
 }

@@ -8,7 +8,7 @@
     "url": "https://github.com/zptcsoft/vr.git"
   },
   "dependencies": {
-    "express": "^4.15.4",
+    "express": "^4.17.3",
     "glob": "^7.1.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-hb": "^6.0.2",
